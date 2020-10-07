@@ -77,6 +77,7 @@ public class AttrController {
     }
 
     /**
+     * @RequestBody 必须
      * 删除
      */
     @RequestMapping("/delete")

@@ -31,6 +31,13 @@ public class CouponController {
     @Autowired
     private CouponService couponService;
 
+
+    @RequestMapping("member/coupon")
+    public R findCoupon(){
+        CouponEntity couponEntity = new CouponEntity();
+        couponEntity.setCouponName("大吉大利，今晚吃鸡优惠券");
+        return R.ok().put("couponEntity",couponEntity);
+    }
     /**
      * 列表
      */

@@ -4,12 +4,11 @@ import java.util.Arrays;
 import java.util.Map;
 
 
+import com.atguigu.gulimall.member.feign.CouponFeignService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.cloud.context.config.annotation.RefreshScope;
+import org.springframework.web.bind.annotation.*;
 
 import com.atguigu.gulimall.member.entity.MemberEntity;
 import com.atguigu.gulimall.member.service.MemberService;
@@ -31,10 +30,33 @@ public class MemberController {
     @Autowired
     private MemberService memberService;
 
+    @Value("${member.user.name}")
+    private String name;
+    @Value("${member.user.age}")
+    private Integer age;
+
+    @Autowired
+    CouponFeignService couponFeignService;
+
+    @GetMapping("/coupons")
+    public R test1(){
+        return R.ok().put("name",name).put("age",age);
+    }
+
+    @GetMapping("/coupon")
+    public R test(){
+
+        MemberEntity memberEntity = new MemberEntity();
+        memberEntity.setNickname("王五");
+
+        R coupon = couponFeignService.findCoupon();
+        return coupon.put("member",memberEntity).put("coupon","coupon");
+    }
+
     /**
      * 列表
      */
-    @RequestMapping("/list")
+        @RequestMapping("/list")
     //@RequiresPermissions("member:member:list")
     public R list(@RequestParam Map<String, Object> params){
         PageUtils page = memberService.queryPage(params);
