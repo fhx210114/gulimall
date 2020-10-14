@@ -19,7 +19,7 @@
         <module>gulimall-member</module>
         <module>renren-generator</module>
         <module>gulimall-gateway</module>
-
+        <module>gulimall-third-paty</module>
     </modules>
 
 
