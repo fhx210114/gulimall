@@ -40,7 +40,7 @@ class GulimallProductApplicationTests {
         OSS ossClient = new OSSClientBuilder().build(endpoint, accessKeyId, accessKeySecret);
          //上传文件流。
         InputStream inputStream = new FileInputStream("C:\\Users\\86185\\Pictures\\Camera Roll\\RUbeN8NHFbwRkkH4-AuKbQ.jpg");
-        ossClient.putObject("gulimall-kites", "Raa", inputStream);
+        ossClient.putObject("gulimall-kites", "ss", inputStream);
         // 关闭OSSClient。
         ossClient.shutdown();
         System.out.println("上传成功");
