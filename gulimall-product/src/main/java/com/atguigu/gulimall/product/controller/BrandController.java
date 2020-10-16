@@ -62,6 +62,7 @@ public class BrandController {
 
     /**
      * 保存
+     *
      */
     @RequestMapping("/save")
     //@RequiresPermissions("product:brand:save")
