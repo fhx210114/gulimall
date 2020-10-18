@@ -27,15 +27,20 @@ public class OssController {
 
     @RequestMapping("/oss/policy")
     public R policy(){
-        String accessId = "LTAI4G9j9eehHMmFKB1ciJu9"; // 请填写您的AccessKeyId。
-        String accessKey = "TrSy4RYMGAIKWLh8U80oSLT4OUj6T0"; // 请填写您的AccessKeySecret。
-        String endpoint = "oss-cn-beijing.aliyuncs.com"; // 请填写您的 endpoint。
+        // 请填写您的AccessKeyId。
+        String accessId = "LTAI4G9j9eehHMmFKB1ciJu9";
+        // 请填写您的AccessKeySecret。
+        String accessKey = "TrSy4RYMGAIKWLh8U80oSLT4OUj6T0";
+        // 请填写您的 endpoint。
+        String endpoint = "oss-cn-beijing.aliyuncs.com";
 
-
-        String bucket = "gulimall-kites"; // 请填写您的 bucketname 。
-        String host = "https://" + bucket + "." + endpoint; // host的格式为 bucketname.endpoint
+        // 请填写您的 bucketname 。
+        String bucket = "gulimall-kites";
+        // host的格式为 bucketname.endpoint
+        String host = "https://" + bucket + "." + endpoint;
         // callbackUrl为 上传回调服务器的URL，请将下面的IP和Port配置为您自己的真实信息。
-//        String callbackUrl = "http://88.88.88.88:8888";
+
+        // String callbackUrl = "http://88.88.88.88:8888";
         String dir = "user-dir-prefix/"; // 用户上传文件时指定的前缀。
 
         // 创建OSSClient实例。
