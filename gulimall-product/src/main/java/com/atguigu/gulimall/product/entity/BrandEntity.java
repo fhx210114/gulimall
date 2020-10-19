@@ -43,8 +43,7 @@ public class BrandEntity implements Serializable {
 	/**
 	 * 品牌logo地址
 	 */
-	@NotBlank(groups = {AddGroup.class})
-	@URL(message = "logo必须是合法的url地址",groups = {AddGroup.class,UpdateGroup.class})
+
 	private String logo;
 	/**
 	 * 介绍
