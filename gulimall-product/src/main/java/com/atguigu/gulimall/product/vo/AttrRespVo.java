@@ -14,8 +14,14 @@ public class AttrRespVo extends AttrVo {
      */
     private String catelogName;
 
+
     /**
      * 所属分组名字
      */
     private  String groupName;
+
+    /**
+     * 所属分类路径
+     */
+    private Long[] catelogPath;
 }

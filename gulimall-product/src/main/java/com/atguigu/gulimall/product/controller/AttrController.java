@@ -4,6 +4,7 @@ import java.util.Arrays;
 import java.util.Map;
 
 
+import com.atguigu.gulimall.product.vo.AttrRespVo;
 import com.atguigu.gulimall.product.vo.AttrVo;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,11 +31,19 @@ public class AttrController {
     private AttrService attrService;
 
 
+    /**
+     * 查询商品属性
+     * @param params 分页数据
+     * @param catelogId 分类id
+     * @param attrType 属性类型
+     * @return
+     */
 
-    @GetMapping("/base/list/{catelogId}")
+    @GetMapping("/{attrType}/list/{catelogId}")
     public R baseAttrList(@RequestParam Map <String,Object> params,
-                          @PathVariable("catelogId") Long catelogId){
-        PageUtils page = attrService.queryBaseAttrPage(params, catelogId);
+                          @PathVariable("catelogId") Long catelogId,
+                          @PathVariable("attrType")String attrType){
+        PageUtils page = attrService.queryBaseAttrPage(params, catelogId,attrType);
 
         return R.ok().put("page",page);
 
@@ -56,9 +65,8 @@ public class AttrController {
      * 信息
      */
     @RequestMapping("/info/{attrId}")
-    //@RequiresPermissions("product:attr:info")
     public R info(@PathVariable("attrId") Long attrId){
-		AttrEntity attr = attrService.getById(attrId);
+        AttrRespVo attr = attrService.getAttrInfo(attrId);
 
         return R.ok().put("attr", attr);
     }
@@ -77,9 +85,8 @@ public class AttrController {
      * 修改
      */
     @RequestMapping("/update")
-    //@RequiresPermissions("product:attr:update")
-    public R update(@RequestBody AttrEntity attr){
-		attrService.updateById(attr);
+    public R update(@RequestBody AttrVo attr){
+		attrService.updateAttrVo(attr);
 
         return R.ok();
     }
