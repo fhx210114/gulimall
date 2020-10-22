@@ -1,16 +1,3 @@
-server:
-  port: 13000
 
-spring:
-  cloud:
-    nacos:
-      discovery:
-        server-addr: 10.16.14.78:8848
-  application:
-    name: gulimall-third-party
-#  alicloud:
-#    access-key: LTAI4G9j9eehHMmFKB1ciJu9
-#    secret-key: TrSy4RYMGAIKWLh8U80oSLT4OUj6T0
-#    oss:
-#      endpoint: oss-cn-beijing.aliyuncs.com
+
 

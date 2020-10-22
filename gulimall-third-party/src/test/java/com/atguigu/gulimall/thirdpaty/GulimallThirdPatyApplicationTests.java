@@ -2,15 +2,20 @@ package com.atguigu.gulimall.thirdpaty;
 
 
 
+
+
+
 import com.aliyun.oss.OSS;
-import com.aliyun.oss.OSSClient;
-
-
 import com.aliyun.oss.OSSClientBuilder;
+import com.aliyun.oss.common.utils.BinaryUtil;
+import com.aliyun.oss.model.MatchMode;
+import com.aliyun.oss.model.PolicyConditions;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.test.context.SpringBootTest;
 
+import javax.annotation.Resource;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.InputStream;
@@ -18,24 +23,28 @@ import java.io.InputStream;
 @SpringBootTest
 class GulimallThirdPatyApplicationTests {
 
-//
-//    @Autowired
-//    OSSClient ossClient;
 
+    @Resource
+    OSS ossClient;
+
+    @Value("${spring.cloud.alicloud.oss.endpoint}")
+    private String endpoint;
+
+    @Value("${spring.cloud.alicloud.oss.bucket}")
+    private String bucket;
+
+    @Value("${spring.cloud.alicloud.access-key}")
+    private String accessId;
+
+    @Value("${spring.cloud.alicloud.secret-key}")
+    private String accessKeySecret;
 
     @Test
     public  void update() throws FileNotFoundException {
-        // Endpoint以杭州为例，其它Region请按实际情况填写。
-        String endpoint = "oss-cn-beijing.aliyuncs.com";
-        // 云账号AccessKey有所有API访问权限，建议遵循阿里云安全最佳实践，创建并使用RAM子账号进行API访问或日常运维，请登录 https://ram.console.aliyun.com 创建。
-        String accessKeyId = "LTAI4G9j9eehHMmFKB1ciJu9";
-        String accessKeySecret = "TrSy4RYMGAIKWLh8U80oSLT4OUj6T0";
 
-        // 创建OSSClient实例。
-        OSS ossClient = new OSSClientBuilder().build(endpoint, accessKeyId, accessKeySecret);
-        //上传文件流。
+
         InputStream inputStream = new FileInputStream("C:\\Users\\86185\\Pictures\\Camera Roll\\RUbeN8NHFbwRkkH4-AuKbQ.jpg");
-        ossClient.putObject("gulimall-kites", "ss", inputStream);
+        ossClient.putObject("gulimall-kites", "bbb", inputStream);
         // 关闭OSSClient。
         ossClient.shutdown();
         System.out.println("上传成功");
