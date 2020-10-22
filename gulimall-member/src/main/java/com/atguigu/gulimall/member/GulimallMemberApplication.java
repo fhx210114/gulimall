@@ -9,10 +9,10 @@ import org.springframework.cloud.openfeign.EnableFeignClients;
 @EnableFeignClients("com.atguigu.gulimall.member.feign")
 @EnableDiscoveryClient
 @SpringBootApplication
-public class GulimallMemverApplication {
+public class GulimallMemberApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(GulimallMemverApplication.class, args);
+        SpringApplication.run(GulimallMemberApplication.class, args);
     }
 
 }
