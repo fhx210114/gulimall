@@ -1,5 +1,13 @@
 package com.atguigu.gulimall.coupon.service.impl;
 
+import com.atguigu.common.to.SkuReductionTo;
+import com.atguigu.gulimall.coupon.entity.SkuFullReductionEntity;
+import com.atguigu.gulimall.coupon.entity.SkuLadderEntity;
+import com.atguigu.gulimall.coupon.service.MemberPriceService;
+import com.atguigu.gulimall.coupon.service.SkuLadderService;
+import org.checkerframework.checker.units.qual.A;
+import org.springframework.beans.BeanUtils;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import java.util.Map;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
@@ -16,6 +24,8 @@ import com.atguigu.gulimall.coupon.service.SeckillSkuRelationService;
 @Service("seckillSkuRelationService")
 public class SeckillSkuRelationServiceImpl extends ServiceImpl<SeckillSkuRelationDao, SeckillSkuRelationEntity> implements SeckillSkuRelationService {
 
+
+
     @Override
     public PageUtils queryPage(Map<String, Object> params) {
         IPage<SeckillSkuRelationEntity> page = this.page(
@@ -25,5 +35,8 @@ public class SeckillSkuRelationServiceImpl extends ServiceImpl<SeckillSkuRelatio
 
         return new PageUtils(page);
     }
+
+
+
 
 }

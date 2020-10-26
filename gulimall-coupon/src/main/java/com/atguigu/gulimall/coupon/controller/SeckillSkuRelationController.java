@@ -4,12 +4,10 @@ import java.util.Arrays;
 import java.util.Map;
 
 
+import com.atguigu.common.to.SkuReductionTo;
+import com.atguigu.gulimall.coupon.service.SkuFullReductionService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import com.atguigu.gulimall.coupon.entity.SeckillSkuRelationEntity;
 import com.atguigu.gulimall.coupon.service.SeckillSkuRelationService;
@@ -26,10 +24,15 @@ import com.atguigu.common.utils.R;
  * @date 2020-09-25 14:11:51
  */
 @RestController
+
 @RequestMapping("coupon/seckillskurelation")
 public class SeckillSkuRelationController {
     @Autowired
     private SeckillSkuRelationService seckillSkuRelationService;
+
+
+
+
 
     /**
      * 列表
