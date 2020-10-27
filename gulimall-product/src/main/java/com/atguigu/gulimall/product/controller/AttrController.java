@@ -1,12 +1,16 @@
 package com.atguigu.gulimall.product.controller;
 
 import java.util.Arrays;
+import java.util.List;
 import java.util.Map;
 
 
+import com.atguigu.gulimall.product.entity.ProductAttrValueEntity;
+import com.atguigu.gulimall.product.service.ProductAttrValueService;
 import com.atguigu.gulimall.product.vo.AttrRespVo;
 import com.atguigu.gulimall.product.vo.AttrVo;
 import com.baomidou.mybatisplus.core.metadata.IPage;
+import oracle.jdbc.proxy.annotation.Post;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -30,7 +34,29 @@ public class AttrController {
     @Autowired
     private AttrService attrService;
 
+    @Autowired
+    ProductAttrValueService attrValueService;
 
+
+    /**
+     * 回显规格
+     * @param spuId
+     * @return
+     */
+    @GetMapping("base/listforspu/{spuId}")
+    public R baseAttrListForspu(@PathVariable("spuId")Long spuId){
+        List<ProductAttrValueEntity> entities = attrValueService.baseAttrListForspu(spuId);
+        return R.ok().put("data",entities);
+    }
+
+
+    @PostMapping("update/{spuId}")
+    public R updateSpuAttr(@PathVariable("spuId")Long spuId,
+                           @RequestBody List<ProductAttrValueEntity> entities){
+        attrValueService.updateSpuAttr(spuId,entities);
+
+        return R.ok();
+    }
     /**
      * 查询商品属性
      * @param params 分页数据
