@@ -11,6 +11,8 @@ spring:
     nacos:
       discovery:
         server-addr: 10.16.14.78:8848
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
 
 
 mybatis-plus:
