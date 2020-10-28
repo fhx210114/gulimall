@@ -53,11 +53,10 @@ renren-generator 代码生成器
 git终端 下载项目
 
 https://gitee.com/square_kite/gulimall
-使用 IDEA 或者 Eclipse 进行打开 Eclipse安装地址 https://www.eclipse.org/ IDEA安装地址 https://www.jetbrains.com/idea/
+使用 IDEA 或者 Eclipse 进行打开
 
-建数据库，如图。
 
-2.png
+
 
 1.png
 
@@ -85,11 +84,12 @@ gulimall-wms ----- gulimall-ware
 然后修改application.yml 将其修改为自己的。
 
 启动上述各个微服务。
- // 下载前端项目
+
 
 进入安装目录，在终端使用命令
 
 npm run dev
+
 项目启动成功，访问 localhost:8001
 
 #### 使用说明
