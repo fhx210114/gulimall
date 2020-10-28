@@ -52,7 +52,7 @@ renren-generator 代码生成器
 
 git终端 下载项目
 
-git clone https://gitee.com/liner123/newgulimall.git
+https://gitee.com/square_kite/gulimall
 使用 IDEA 或者 Eclipse 进行打开 Eclipse安装地址 https://www.eclipse.org/ IDEA安装地址 https://www.jetbrains.com/idea/
 
 建数据库，如图。
